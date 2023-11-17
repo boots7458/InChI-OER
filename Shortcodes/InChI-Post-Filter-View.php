@@ -1,35 +1,26 @@
 <!-- # Search and Pagination API Codes -->
 
-
-
 [wpv-filter-start hide="false"]
-[wpv-filter-controls]
 <div>
+[wpv-filter-controls]
   	<div class="form-group">
-		<label>[wpml-string context="wpv-views"]Search[/wpml-string]</label>
-		[wpv-filter-search-box output="bootstrap"]
 	</div>
-	<div class="form-group">
-		<label>[wpml-string context="wpv-views"]Content Types[/wpml-string]</label>
-		[wpv-control-postmeta field="wpcf-content-types" url_param="wpv-wpcf-content-types"]
+	<div class="oer-types">
+      <div class="content-type-label"><label>[wpml-string context="wpv-views"]Content Types[/wpml-string]</label></div>
+      <div class="oer-type-select">[wpv-control-postmeta field="wpcf-content-types" url_param="wpv-wpcf-content-types"]</div>
 	</div>
-	<div class="form-group">
-		<label>[wpml-string context="wpv-views"]InChI Tags[/wpml-string]</label>
-		[wpv-control-post-taxonomy taxonomy="inchi-tag" type="multi-select" orderby="none" url_param="wpv-inchi-tag"]
-</div>
-CTRL Click - Select Multiple
-  <div class="form-group">
-  <br><a href="https://www.inchi-trust.org/wp/oer/" class="button">Reset</a> </br>
-</div>
-</div>
-[/wpv-filter-controls]
-[wpv-filter-end]
 
+	<div class="tags-box">
+      <div class="content-type-label"><label>[wpml-string context="wpv-views"]InChI Tags[/wpml-string]</label></div>
+		<div class="checkboxes">[wpv-control-post-taxonomy taxonomy="inchi-tag" type="checkboxes" orderby="slug" url_param="wpv-inchi-tag"]</div>
+    </div>
+  <br><a href="https://www.inchi-trust.org/oer" class="button" target="_parent">Reset</a></br>
+[wpv-filter-controls]
+</div>
+[wpv-filter-end] 
 
 
 <!-- # Loop Editor -->
-
-
 
 [wpv-layout-start]
 	[wpv-items-found]
@@ -51,13 +42,14 @@ CTRL Click - Select Multiple
 		</tbody>
 	</table>
 	<!-- wpv-loop-end -->
-
-<div class="container">
-  <div class="page-select">
-[wpv-pagination]Current Page= [wpv-pager-current-page] [wpv-pager-nav-links output="bootstrap" first_last_links="true" previous_next_links="true" force_previous_next="true"]Total Pages= [wpv-pager-total-pages][/wpv-pagination]
+<div class="page-select-box">
+<div class="page-select">
+[wpv-pagination]Current Page= [wpv-pager-current-page]
+<div>
+[wpv-pager-nav-links output="bootstrap" first_last_links="true"]
+  </div>
 </div>
 </div>
- 
 	[/wpv-items-found]
 	[wpv-no-items-found]
 		<strong>[wpml-string context="wpv-views"]No items found[/wpml-string]</strong>
@@ -65,9 +57,7 @@ CTRL Click - Select Multiple
 [wpv-layout-end]
 
 
-
 <!-- # Output Editor -->
-
 
 <div class="row">
 	<div class="col-sm-3">[wpv-filter-meta-html]</div>
